@@ -6,10 +6,11 @@
     <meta charset="utf-8">
     <meta name="keywords" content="洛谷P1048 采药, yuntianming blog">
     <meta name="description" content="30分做法直接枚举加剪枝，最坏复杂度为$O(2^n)$。Code：
-#include&amp;lt;iostream&amp;gt;
-#include&amp;lt;cstdio&amp;gt;
-#include&amp;lt;algorithm&amp;gt;
-using namesp">
+#include&amp;lt;iostream&gt;
+#include&amp;lt;cstdio&gt;
+#include&amp;lt;algorithm&gt;
+using namespace std;
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -249,8 +250,8 @@ using namesp">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/题解/" class="post-category" target="_blank">
-                                题解
+                            <a href="/categories/洛谷/" class="post-category" target="_blank">
+                                洛谷
                             </a>
                         
                     </div>
@@ -268,7 +269,7 @@ using namesp">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        444
+                        420
                     </div>
                     
 
@@ -292,84 +293,86 @@ using namesp">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="30分做法"><a href="#30分做法" class="headerlink" title="30分做法"></a>30分做法</h2><p>直接枚举加剪枝，最坏复杂度为$O(2^n)$。<br>Code：</p>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-struct node
-{
-    int jz,sj;
-}a[105];
-int ans,m;
-void dfs(int t,int v,int n)
-{
-    if(t&gt;m) {
-        ans=max(ans,n);
-        return;
-    }
-    dfs(t+1,v,n);
-    if(v-a[t].sj&gt;0) dfs(t+1,v-a[t].sj,n+a[t].jz);
-    if(v-a[t].sj==0) {
-        ans=max(ans,n+a[t].jz);
-        return;
-    }
-}
-int main()
-{
-    int time;//由于没开#include&lt;ctime&gt;,因此不会CE。
-    scanf(&quot;%d%d&quot;,&amp;time,&amp;m);
-    for(int i=1;i&lt;=m;i++)
-    {
-        scanf(&quot;%d%d&quot;,&amp;a[i].sj,&amp;a[i].jz);
-    }
-    dfs(1,time,0);
-    printf(&quot;%d\n&quot;,ans);
-}</code></pre><h2 id="100分做法"><a href="#100分做法" class="headerlink" title="100分做法"></a>100分做法</h2><h3 id="前置技能：启发式搜索"><a href="#前置技能：启发式搜索" class="headerlink" title="前置技能：启发式搜索"></a>前置技能：<strong>启发式搜索</strong></h3><p>我们写一个估价函数f，可以剪掉所有无效的0枝条（就是剪去大量无用不选枝条。<br>数学上有对此方法的论证，请自行搜索。<br>这样，最慢的测试点才7ms，比刚才的&gt;1000ms快多了！<br>Code：</p>
-<pre><code>#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-const int N = 105 ;
-int n,m,ans;
-struct Node{
-    int a,b;//a代表时间，b代表价值 
-    double f;
-}node[N];
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> node
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> jz<span class="token punctuation">,</span>sj<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>a<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> t<span class="token punctuation">,</span><span class="token keyword">int</span> v<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token operator">></span>m<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">dfs</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>v<span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>v<span class="token operator">-</span>a<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>sj<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">dfs</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>v<span class="token operator">-</span>a<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>sj<span class="token punctuation">,</span>n<span class="token operator">+</span>a<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>jz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>v<span class="token operator">-</span>a<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>sj<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>n<span class="token operator">+</span>a<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>jz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> time<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//由于没开#include&lt;ctime>,因此不会CE。</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>time<span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>sj<span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>jz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>time<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="100分做法"><a href="#100分做法" class="headerlink" title="100分做法"></a>100分做法</h2><h3 id="前置技能：启发式搜索"><a href="#前置技能：启发式搜索" class="headerlink" title="前置技能：启发式搜索"></a>前置技能：<strong>启发式搜索</strong></h3><p>我们写一个估价函数f，可以剪掉所有无效的0枝条（就是剪去大量无用不选枝条。<br>数学上有对此方法的论证，请自行搜索。<br>这样，最慢的测试点才7ms，比刚才的&gt;1000ms快多了！<br>Code：</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">105</span> <span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">,</span>ans<span class="token punctuation">;</span>
+<span class="token keyword">struct</span> Node<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//a代表时间，b代表价值 </span>
+    <span class="token keyword">double</span> f<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>node<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-bool operator&lt; (Node p,Node q) {
-    return p.f&gt;q.f;
-}
+<span class="token keyword">bool</span> <span class="token keyword">operator</span><span class="token operator">&lt;</span> <span class="token punctuation">(</span>Node p<span class="token punctuation">,</span>Node q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> p<span class="token punctuation">.</span>f<span class="token operator">></span>q<span class="token punctuation">.</span>f<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int f(int t,int v){
-    int tot=0;
-    for(int i=1;t+i&lt;=n;i++)
-        if(v&gt;=node[t+i].a){
-            v-=node[t+i].a;
-            tot+=node[t+i].b;
-        }
-        else 
-            return (int)(tot+v*node[t+i].f);
-    return tot;
-}
+<span class="token keyword">int</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token keyword">int</span> t<span class="token punctuation">,</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> tot<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>t<span class="token operator">+</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>v<span class="token operator">>=</span>node<span class="token punctuation">[</span>t<span class="token operator">+</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            v<span class="token operator">-</span><span class="token operator">=</span>node<span class="token punctuation">[</span>t<span class="token operator">+</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+            tot<span class="token operator">+</span><span class="token operator">=</span>node<span class="token punctuation">[</span>t<span class="token operator">+</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> 
+            <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>tot<span class="token operator">+</span>v<span class="token operator">*</span>node<span class="token punctuation">[</span>t<span class="token operator">+</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> tot<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-void work(int t,int p,int v){
-    ans=max(ans,v);
-    if(t&gt;n) return ;
-    if(f(t,p)+v&gt;ans) work(t+1,p,v);
-    if(node[t].a&lt;=p) work(t+1,p-node[t].a,v+node[t].b);
-}
+<span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token keyword">int</span> t<span class="token punctuation">,</span><span class="token keyword">int</span> p<span class="token punctuation">,</span><span class="token keyword">int</span> v<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token operator">></span>n<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">f</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token operator">+</span>v<span class="token operator">></span>ans<span class="token punctuation">)</span> <span class="token function">work</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token punctuation">,</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>node<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token operator">&lt;=</span>p<span class="token punctuation">)</span> <span class="token function">work</span><span class="token punctuation">(</span>t<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>p<span class="token operator">-</span>node<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">,</span>v<span class="token operator">+</span>node<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main()
-{
-    scanf(&quot;%d %d&quot;,&amp;m,&amp;n);
-    for(int i=1;i&lt;=n;i++){
-        scanf(&quot;%d %d&quot;,&amp;node[i].a,&amp;node[i].b);
-        node[i].f=1.0*node[i].b/node[i].a;
-    }
-    sort(node+1,node+n+1);
-    work(1,m,0);
-    printf(&quot;%d\n&quot;,ans);
-    return 0;
-}</code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>node<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">,</span><span class="token operator">&amp;</span>node<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        node<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>f<span class="token operator">=</span><span class="token number">1.0</span><span class="token operator">*</span>node<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>b<span class="token operator">/</span>node<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>a<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>node<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>node<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">work</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>m<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+
             </div>
             <hr/>
 
@@ -619,8 +622,8 @@ int main()
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/题解/" class="post-category" target="_blank">
-                                    题解
+                            <a href="/categories/洛谷/" class="post-category" target="_blank">
+                                    洛谷
                                 </a>
                             
                             
@@ -677,8 +680,8 @@ int main()
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/题解/" class="post-category" target="_blank">
-                                    题解
+                            <a href="/categories/洛谷/" class="post-category" target="_blank">
+                                    洛谷
                                 </a>
                             
                             
@@ -732,7 +735,7 @@ int main()
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3.3k</span>
+                <span class="white-color">3.2k</span>
             
 
             
