@@ -443,6 +443,41 @@ $(function () {
                     
 
                     
+                        
+
+<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<div class="music-player">
+    
+    <div class="title center-align">
+        <i class="fa fa-music"></i>&nbsp;&nbsp;听听音乐
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="aplayer" class="music"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script>
+$(function () {
+    new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: 'flase' === 'true',
+        autoplay: 'true' === 'true',
+        theme: '#42b983',
+        loop: 'all',
+        order: 'list',
+        preload: 'auto',
+        volume: Number('0.7'),
+        listFolded: 'false' === 'true',
+        listMaxHeight: '',
+        audio: JSON.parse('[{"name":"平凡之路","artist":"韩寒/朴树","url":"http://fs.open.kugou.com/0884b19b04f3a06f2806c3f95c6a2dcb/5d46b026/G097/M08/0A/1F/AYcBAFkQGpOAMUpuAEm-3SlWMyk951.mp3","cover":"http://img.zcool.cn/community/0151a759afbed6a8012028a9952c3a.jpg@1280w_1l_2o_100sh.jpg"},{"name":"中国喜事","artist":"凤凰传奇","url":"http://fs.open.kugou.com/ddea24a0b4ab0d2799412295657ccfde/5d46b059/G010/M03/07/08/qoYBAFUMqbWAbG2SAC4im1_zUxo691.mp3","cover":"http://picm.photophoto.cn/055/113/016/1130160054.jpg"},{"name":"夜空中最亮的星","artist":"逃跑计划","url":"http://fs.open.kugou.com/fbcc1e6a6e7996c4d97d2f6c7c1a5904/5d477692/G014/M01/10/05/roYBAFULeiSAZ0rxAD2Y88Efqbw148.mp3","cover":"http://pic.58pic.com/58pic/15/59/75/52958PICWqR_1024.jpg"}]')
+    });
+});
+</script>
+                    
 
                     
 
