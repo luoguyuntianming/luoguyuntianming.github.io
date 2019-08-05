@@ -4,18 +4,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="美工组自招简章, yuntianming blog">
-    <meta name="description" content="美工组自招简章1. 加入要求1.1 测试要求
-
-    组长/副组长出两道题目，1小时完成1道即可。完成后即可开始1~2周的实习。
-
-1.2 测试范围
-
-    包括Photoshop和flash，只需熟练运用即可。
-
-1.3 特殊贡献
-
-">
+    <meta name="keywords" content="洛谷P1048 采药, yuntianming blog">
+    <meta name="description" content="30分做法直接枚举加剪枝，最坏复杂度为$O(2^n)$。Code：
+#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;cstdio&amp;gt;
+#include&amp;lt;algorithm&amp;gt;
+using namesp">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>美工组自招简章 | yuntianming blog</title>
+    <title>洛谷P1048 采药 | yuntianming blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -207,13 +201,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        美工组自招简章
+                        洛谷P1048 采药
                     </div>
                 </div>
             </div>
@@ -235,12 +229,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Moj/" target="_blank">
-                                <span class="chip bg-color">Moj</span>
+                            <a href="/tags/洛谷/" target="_blank">
+                                <span class="chip bg-color">洛谷</span>
                             </a>
                         
-                            <a href="/tags/美工组/" target="_blank">
-                                <span class="chip bg-color">美工组</span>
+                            <a href="/tags/题解/" target="_blank">
+                                <span class="chip bg-color">题解</span>
+                            </a>
+                        
+                            <a href="/tags/2019/" target="_blank">
+                                <span class="chip bg-color">2019</span>
                             </a>
                         
                     </div>
@@ -251,8 +249,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/美工组/" class="post-category" target="_blank">
-                                美工组
+                            <a href="/categories/题解/" class="post-category" target="_blank">
+                                题解
                             </a>
                         
                     </div>
@@ -263,14 +261,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-01
+                    2019-08-05
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        574
+                        444
                     </div>
                     
 
@@ -293,70 +291,85 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="美工组自招简章"><a href="#美工组自招简章" class="headerlink" title="美工组自招简章"></a>美工组自招简章</h2><h3 id="1-加入要求"><a href="#1-加入要求" class="headerlink" title="1. 加入要求"></a><strong>1.</strong> <strong>加入要求</strong></h3><pre><code>1.1 测试要求
+                <h2 id="30分做法"><a href="#30分做法" class="headerlink" title="30分做法"></a>30分做法</h2><p>直接枚举加剪枝，最坏复杂度为$O(2^n)$。<br>Code：</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+struct node
+{
+    int jz,sj;
+}a[105];
+int ans,m;
+void dfs(int t,int v,int n)
+{
+    if(t&gt;m) {
+        ans=max(ans,n);
+        return;
+    }
+    dfs(t+1,v,n);
+    if(v-a[t].sj&gt;0) dfs(t+1,v-a[t].sj,n+a[t].jz);
+    if(v-a[t].sj==0) {
+        ans=max(ans,n+a[t].jz);
+        return;
+    }
+}
+int main()
+{
+    int time;//由于没开#include&lt;ctime&gt;,因此不会CE。
+    scanf(&quot;%d%d&quot;,&amp;time,&amp;m);
+    for(int i=1;i&lt;=m;i++)
+    {
+        scanf(&quot;%d%d&quot;,&amp;a[i].sj,&amp;a[i].jz);
+    }
+    dfs(1,time,0);
+    printf(&quot;%d\n&quot;,ans);
+}</code></pre><h2 id="100分做法"><a href="#100分做法" class="headerlink" title="100分做法"></a>100分做法</h2><h3 id="前置技能：启发式搜索"><a href="#前置技能：启发式搜索" class="headerlink" title="前置技能：启发式搜索"></a>前置技能：<strong>启发式搜索</strong></h3><p>我们写一个估价函数f，可以剪掉所有无效的0枝条（就是剪去大量无用不选枝条。<br>数学上有对此方法的论证，请自行搜索。<br>这样，最慢的测试点才7ms，比刚才的&gt;1000ms快多了！<br>Code：</p>
+<pre><code>#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N = 105 ;
+int n,m,ans;
+struct Node{
+    int a,b;//a代表时间，b代表价值 
+    double f;
+}node[N];
 
-    组长/副组长出两道题目，1小时完成1道即可。完成后即可开始1~2周的实习。
+bool operator&lt; (Node p,Node q) {
+    return p.f&gt;q.f;
+}
 
-1.2 测试范围
+int f(int t,int v){
+    int tot=0;
+    for(int i=1;t+i&lt;=n;i++)
+        if(v&gt;=node[t+i].a){
+            v-=node[t+i].a;
+            tot+=node[t+i].b;
+        }
+        else 
+            return (int)(tot+v*node[t+i].f);
+    return tot;
+}
 
-    包括Photoshop和flash，只需熟练运用即可。
+void work(int t,int p,int v){
+    ans=max(ans,v);
+    if(t&gt;n) return ;
+    if(f(t,p)+v&gt;ans) work(t+1,p,v);
+    if(node[t].a&lt;=p) work(t+1,p-node[t].a,v+node[t].b);
+}
 
-1.3 特殊贡献
-
-    被 @yemaster 提名者或特殊贡献者，可跳过测试，直接成为实习组员。
-
-1.4 特殊测试（选做）
-
-    参加本组的特殊测试和普通测试，即可跳过实习期。
-
-    测试的项目为Photoshop和flash基础知识。</code></pre><h3 id="2-工作范围与人选问题"><a href="#2-工作范围与人选问题" class="headerlink" title="2. 工作范围与人选问题"></a><strong>2.</strong> <strong>工作范围与人选问题</strong></h3><pre><code>原则上来说，任务较轻的由组员完成，复杂的由组长/副组长完成或美工组集体完成。</code></pre><h3 id="3-实习问题"><a href="#3-实习问题" class="headerlink" title="3. 实习问题"></a><strong>3.</strong> <strong>实习问题</strong></h3><pre><code>3.1 实习工作
-
-    实习期间，所有与美工组有关的工作，除特殊工作外，实习成员均需提交一份。若实习期间贡献突出者，可直接成为正式组员，无需投票。
-
-3.2 不合格者处理方法
-
-    3.2.1不合格者具体定义
-
-        不完成任务、质量过差者
-
-    3.2.2 不合格处理规范
-
-        1.第一次由组长/组员进行提示。
-
-        2.第二次延长一周的实习期。
-
-        3.第三次延长至一个月。
-
-        4.第四次取消实习资格
-
-3.3 正式组员投票决定
-
-    由实习组员转为正式组员，需经过正式组员的不记名投票。票数超过1/2即可成为正式组员。</code></pre><h3 id="4-正式组员规定"><a href="#4-正式组员规定" class="headerlink" title="4. 正式组员规定"></a><strong>4.</strong> <strong>正式组员规定</strong></h3><pre><code>在遇到工作时，除遇到其他事项外，都应当在24小时内进行处理，最迟在第三天进行反馈。</code></pre><h3 id="5-组长和副组长"><a href="#5-组长和副组长" class="headerlink" title="5. 组长和副组长"></a><strong>5.</strong> <strong>组长和副组长</strong></h3><pre><code>在成为正式组员以后，允许向 @yuntianming 申请副组长职务，随后进行组员投票，有2/3的正式组员同意即可。
-
-副组长一共2名，报满为止。</code></pre><h3 id="6-报名事项"><a href="#6-报名事项" class="headerlink" title="6. 报名事项"></a><strong>6.</strong> <strong>报名事项</strong></h3><pre><code>请填写 附件2 中的报名表，发送给yuntianming。
-</code></pre><p><strong>美工组</strong></p>
-<p><strong>2017/7/27</strong></p>
-<p>附件1 <strong>美工组名单</strong></p>
-<pre><code>组长：yuntianming
-副组长：duboyan（实习）（兼职）
-组员：（暂缺）
-</code></pre><p>附件2 <strong>报名表</strong></p>
-<table>
-<thead>
-<tr>
-<th><strong>报名人</strong></th>
-<th><strong>测试时间</strong></th>
-<th><strong>QQ</strong>昵称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>我们将在该时间往你的<strong>QQ</strong>账号/<strong>MasterOJ</strong>官方<strong>QQ</strong>群中发送题目，请注意查收。</p>
-
+int main()
+{
+    scanf(&quot;%d %d&quot;,&amp;m,&amp;n);
+    for(int i=1;i&lt;=n;i++){
+        scanf(&quot;%d %d&quot;,&amp;node[i].a,&amp;node[i].b);
+        node[i].f=1.0*node[i].b/node[i].a;
+    }
+    sort(node+1,node+n+1);
+    work(1,m,0);
+    printf(&quot;%d\n&quot;,ans);
+    return 0;
+}</code></pre>
             </div>
             <hr/>
 
@@ -514,9 +527,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《美工组自招简章》
+                    《洛谷P1048 采药》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/01/Moj_Art_Group/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/05/solution-luoguP1048/" property="cc:attributionName"
                rel="cc:attributionURL">
                 yuntianming
             </a> 采用
@@ -557,7 +570,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-08-01T09-00-00',
+        id: '2019-08-05T07-49-03',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -578,9 +591,68 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/08/05/solution-luoguP1048/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="洛谷P1048 采药">
+                        
+                        <span class="card-title">洛谷P1048 采药</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文对洛谷 2019 春令营 Day1 的作业做了简单的讲解。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/题解/" class="post-category" target="_blank">
+                                    题解
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/洛谷/" target="_blank">
+                        <span class="chip bg-color">洛谷</span>
+                    </a>
+                    
+                    <a href="/tags/题解/" target="_blank">
+                        <span class="chip bg-color">题解</span>
+                    </a>
+                    
+                    <a href="/tags/2019/" target="_blank">
+                        <span class="chip bg-color">2019</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/08/05/luogu-2019-chunlingying-pujizu-zuoyetijie-day1/">
                     <div class="card-image">
@@ -598,9 +670,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -633,60 +705,6 @@
             </div>
         </div>
         
-        
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/08/01/Moj_Art_Group/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="美工组自招简章">
-                        
-                        <span class="card-title">美工组自招简章</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文为Moj美工组自招简章的介绍。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-01
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/美工组/" class="post-category" target="_blank">
-                                    美工组
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Moj/" target="_blank">
-                        <span class="chip bg-color">Moj</span>
-                    </a>
-                    
-                    <a href="/tags/美工组/" target="_blank">
-                        <span class="chip bg-color">美工组</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
     </div>
 </article>
 </div>
@@ -697,6 +715,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
