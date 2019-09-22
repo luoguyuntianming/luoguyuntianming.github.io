@@ -35,6 +35,14 @@ P2615 神奇的幻方#include&amp;lt;stdi">
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    
+        <script type="text/javascript"> //只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"></script>'); 
+        }
+        
+    
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <script type="text/javascript">var OriginTitile=document.title,st;document.addEventListener("visibilitychange",function(){document.hidden?(document.title="看不见我🙈~看不见我🙈~",clearTimeout(st)):(document.title="(๑•̀ㅂ•́) ✧被发现了～",st=setTimeout(function(){document.title=OriginTitile},3e3))})</script>
@@ -354,7 +362,7 @@ P2615 神奇的幻方#include&amp;lt;stdi">
 <h2 id="P1014-Cantor表"><a href="#P1014-Cantor表" class="headerlink" title="P1014 Cantor表"></a>P1014 Cantor表</h2><h3 id="算法1：模拟，按题意一个个枚举"><a href="#算法1：模拟，按题意一个个枚举" class="headerlink" title="算法1：模拟，按题意一个个枚举"></a>算法1：模拟，按题意一个个枚举</h3><p>时间复杂度O(n),基本可以通过本题n≤$10^7$</p>
 <h3 id="算法2：发现Z字形的每条斜线可以快速枚举，即枚举"><a href="#算法2：发现Z字形的每条斜线可以快速枚举，即枚举" class="headerlink" title="算法2：发现Z字形的每条斜线可以快速枚举，即枚举"></a>算法2：发现Z字形的每条斜线可以快速枚举，即枚举</h3><p>1/1 , 1/2 , 3/1 , 1/4 , 5/1 , 1/6……找到要求的第n项所在斜线，再一个个枚举或计算得出答案。<br>时间复杂度O(√n),可以通过n≤$10^{14}$</p>
 <h3 id="算法2-5：枚举第n项在哪一行，计算得出答案。"><a href="#算法2-5：枚举第n项在哪一行，计算得出答案。" class="headerlink" title="算法2.5：枚举第n项在哪一行，计算得出答案。"></a>算法2.5：枚举第n项在哪一行，计算得出答案。</h3><p>比算法2好写,时间复杂度同算法2</p>
-<h3 id="算法3：二分法"><a href="#算法3：二分法" class="headerlink" title="算法3：二分法"></a>算法3：二分法</h3><p>发现第i条斜线（即分子分母之和$=i+1$的所有项）中包含$i \times (i-1)/2+1$至$i \times (i+1)$中的每一项，所以可以二分分子分母之和，再根据分子分母之和的奇偶性直接计算第n项。<br>时间复杂度O($log_{2}n$),可以通过n≤$10^{18}$。<br>二分参考代码：</p>
+<h3 id="算法3：二分法"><a href="#算法3：二分法" class="headerlink" title="算法3：二分法"></a>算法3：二分法</h3><p>发现第i条斜线（即分子分母之和$=i+1$的所有项）中包含$i \times (i-1)/2+1$至$i \times (i+1)$中的每一项，所以可以二分分子分母之和，再根据分子分母之和的奇偶性直接计算第n项。<br>时间复杂度$O(log_{2}n)$,可以通过n≤$10^{18}$。<br>二分参考代码：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cmath></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
