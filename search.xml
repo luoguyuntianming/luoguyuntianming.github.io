@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>CF1221A-2048 Game</title>
+      <link href="/2019/09/22/solution-cf1221a/"/>
+      <url>/2019/09/22/solution-cf1221a/</url>
+      
+        <content type="html"><![CDATA[<h3 id="这题其实是一个简单地贪心"><a href="#这题其实是一个简单地贪心" class="headerlink" title="这题其实是一个简单地贪心"></a>这题其实是一个简单地贪心</h3><p>由于$\sum_{i=0}^{n}2^i=2^{i+1}-1$，而本题要求合并相同的数。<br>因此，当要生成$2048$，可以得出：当<strong>所有特定数</strong>的和小于$2048$，一定不能合成。当<strong>所有特定数</strong>的和大于$2048$，则一定有相同的数。<br>因此，为得到$2048$，可以维护一个$sum$按如下的方法做：  </p><ol><li>$a_i&gt;2048$ 直接忽略。因为任何大于$2048$的相同两个数相加<strong>一定</strong>会大于2048，对答案没有贡献。</li><li>$a_i \le 2048$ $sum+=a_i$。</li></ol><p>随后看是否$sum \ge 2048$，大于等于输出<code>Yes</code>，否则输出<code>No</code>。</p><p>代码：  </p><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span><span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span><span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">int</span> t<span class="token punctuation">;</span>    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">while</span><span class="token punctuation">(</span>t<span class="token operator">--</span><span class="token punctuation">)</span>    <span class="token punctuation">{</span>        <span class="token keyword">int</span> n<span class="token punctuation">;</span>        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">int</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>yx<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>f<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>        <span class="token punctuation">{</span>            <span class="token keyword">int</span> x<span class="token punctuation">;</span>            <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">></span><span class="token number">2048</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>            sum<span class="token operator">+</span><span class="token operator">=</span>x<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token keyword">if</span><span class="token punctuation">(</span>sum<span class="token operator">>=</span><span class="token number">2048</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"YES"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">else</span> <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"NO"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> CF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 题解 </tag>
+            
+            <tag> 2019 </tag>
+            
+            <tag> CF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>洛谷P1048 采药</title>
       <link href="/2019/08/05/solution-luoguP1048/"/>
       <url>/2019/08/05/solution-luoguP1048/</url>
