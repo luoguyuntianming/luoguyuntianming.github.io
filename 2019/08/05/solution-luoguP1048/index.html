@@ -5,12 +5,11 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="洛谷P1048 采药, yuntianming blog">
-    <meta name="description" content="30分做法直接枚举加剪枝，最坏复杂度为$O(2^n)$。Code：
+    <meta name="description" content="30分做法直接枚举加剪枝，最坏复杂度为$O(2^n)$。$Code:$
 #include&amp;lt;iostream&gt;
 #include&amp;lt;cstdio&gt;
 #include&amp;lt;algorithm&gt;
-using namespace std;
-">
+using namespace std">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -238,16 +237,16 @@ using namespace std;
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/洛谷/" target="_blank">
+                                <span class="chip bg-color">洛谷</span>
+                            </a>
+                        
                             <a href="/tags/题解/" target="_blank">
                                 <span class="chip bg-color">题解</span>
                             </a>
                         
                             <a href="/tags/2019/" target="_blank">
                                 <span class="chip bg-color">2019</span>
-                            </a>
-                        
-                            <a href="/tags/洛谷/" target="_blank">
-                                <span class="chip bg-color">洛谷</span>
                             </a>
                         
                     </div>
@@ -300,7 +299,7 @@ using namespace std;
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="30分做法"><a href="#30分做法" class="headerlink" title="30分做法"></a>30分做法</h2><p>直接枚举加剪枝，最坏复杂度为$O(2^n)$。<br>Code：</p>
+                <h2 id="30分做法"><a href="#30分做法" class="headerlink" title="30分做法"></a>30分做法</h2><p>直接枚举加剪枝，最坏复杂度为$O(2^n)$。<br>$Code:$</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
@@ -334,7 +333,7 @@ using namespace std;
     <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>time<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<h2 id="100分做法"><a href="#100分做法" class="headerlink" title="100分做法"></a>100分做法</h2><h3 id="前置技能：启发式搜索"><a href="#前置技能：启发式搜索" class="headerlink" title="前置技能：启发式搜索"></a>前置技能：<strong>启发式搜索</strong></h3><p>我们写一个估价函数f，可以剪掉所有无效的0枝条（就是剪去大量无用不选枝条。<br>数学上有对此方法的论证，请自行搜索。<br>这样，最慢的测试点才7ms，比刚才的&gt;1000ms快多了！<br>Code：</p>
+<h2 id="100分做法"><a href="#100分做法" class="headerlink" title="100分做法"></a>100分做法</h2><h3 id="前置技能：启发式搜索"><a href="#前置技能：启发式搜索" class="headerlink" title="前置技能：启发式搜索"></a>前置技能：<strong>启发式搜索</strong></h3><p>我们写一个估价函数f，可以剪掉所有无效的 $0$ 枝条（就是剪去大量无用不选枝条）。<br>数学上有对此方法的论证，请自行搜索。<br>这样，最慢的测试点才 $7ms$ ，比刚才的 $&gt;1000ms$ 快多了！<br>$Code:$</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
@@ -640,16 +639,16 @@ using namespace std;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CF/" target="_blank">
-                        <span class="chip bg-color">CF</span>
-                    </a>
-                    
                     <a href="/tags/题解/" target="_blank">
                         <span class="chip bg-color">题解</span>
                     </a>
                     
                     <a href="/tags/2019/" target="_blank">
                         <span class="chip bg-color">2019</span>
+                    </a>
+                    
+                    <a href="/tags/CF/" target="_blank">
+                        <span class="chip bg-color">CF</span>
                     </a>
                     
                 </div>
@@ -697,16 +696,16 @@ using namespace std;
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/洛谷/" target="_blank">
+                        <span class="chip bg-color">洛谷</span>
+                    </a>
+                    
                     <a href="/tags/题解/" target="_blank">
                         <span class="chip bg-color">题解</span>
                     </a>
                     
                     <a href="/tags/2019/" target="_blank">
                         <span class="chip bg-color">2019</span>
-                    </a>
-                    
-                    <a href="/tags/洛谷/" target="_blank">
-                        <span class="chip bg-color">洛谷</span>
                     </a>
                     
                 </div>
@@ -741,7 +740,7 @@ using namespace std;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3.4k</span>
+                <span class="white-color">3.7k</span>
             
 
             
