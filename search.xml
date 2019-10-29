@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>博客更新通知</title>
+      <link href="/2019/10/29/Blog%20attention/"/>
+      <url>/2019/10/29/Blog%20attention/</url>
+      
+        <content type="html"><![CDATA[<p>经过几个月的考察，博客全面更新至 洪卫 的主题 <a href="https://github.com/shw2018/hexo-blog-fly" target="_blank" rel="noopener">Hexo-blog-fly</a><br>由于时间仓促，无法看完全部代码，且无法预览，故提前上线。目前已知大量的bug。<br>如果您找到了新的bug，请在留言区回复我。</p><p>目前已知bug：</p><ol><li>底部的 Copyright© 2019 洪卫. 。</li><li>顶部 yuntianming的博客 与 首页重合（解决方法貌似是缩小显示比例？）。</li><li>Atom的友链失效。</li><li>部分页面404（目前暂不清楚是哪些界面404，如果发现请留言告诉我）。</li><li>Live2D 人物失效。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>洛谷P5601 小D与笔试</title>
       <link href="/2019/10/28/solution-luoguP5601/"/>
       <url>/2019/10/28/solution-luoguP5601/</url>
@@ -20,11 +45,11 @@
       
         <tags>
             
+            <tag> 洛谷 </tag>
+            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
-            
-            <tag> 洛谷 </tag>
             
         </tags>
       
@@ -49,11 +74,11 @@
       
         <tags>
             
-            <tag> CF </tag>
-            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
+            
+            <tag> CF </tag>
             
         </tags>
       
@@ -78,11 +103,11 @@
       
         <tags>
             
+            <tag> 洛谷 </tag>
+            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
-            
-            <tag> 洛谷 </tag>
             
         </tags>
       
@@ -107,11 +132,11 @@
       
         <tags>
             
+            <tag> 洛谷 </tag>
+            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
-            
-            <tag> 洛谷 </tag>
             
         </tags>
       
