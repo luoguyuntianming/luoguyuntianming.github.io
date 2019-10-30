@@ -673,11 +673,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/tags/CF/" title="CF: 1">
+                <a href="/tags/洛谷/" title="洛谷: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="CF" style="background-color: #E8F8F5;">CF
-                        <span class="tag-length">1</span>
+                            data-tagname="洛谷" style="background-color: #E8F8F5;">洛谷
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -700,11 +700,11 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/tags/洛谷/" title="洛谷: 3">
+                <a href="/tags/CF/" title="CF: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="洛谷" style="background-color: #82E0AA;">洛谷
-                        <span class="tag-length">3</span>
+                            data-tagname="CF" style="background-color: #82E0AA;">CF
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -732,7 +732,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"博客","weight":1,"link":"/tags/博客/"},{"text":"Moj","weight":1,"link":"/tags/Moj/"},{"text":"美工组","weight":1,"link":"/tags/美工组/"},{"text":"CF","weight":1,"link":"/tags/CF/"},{"text":"题解","weight":4,"link":"/tags/题解/"},{"text":"2019","weight":4,"link":"/tags/2019/"},{"text":"洛谷","weight":3,"link":"/tags/洛谷/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"博客","weight":1,"link":"/tags/博客/"},{"text":"Moj","weight":1,"link":"/tags/Moj/"},{"text":"美工组","weight":1,"link":"/tags/美工组/"},{"text":"洛谷","weight":3,"link":"/tags/洛谷/"},{"text":"题解","weight":4,"link":"/tags/题解/"},{"text":"2019","weight":4,"link":"/tags/2019/"},{"text":"CF","weight":1,"link":"/tags/CF/"}], {
         autoResize: true
     });
 </script>
@@ -923,6 +923,14 @@ $(function () {
 
         <!-- 背景雪花飘落特效洪卫 shw2018 add 2019.09.10 -->
         
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
 
         <!-- 鼠标点击文字特效 洪卫 shw2018 add 2019.09.10-->
         
@@ -930,13 +938,6 @@ $(function () {
         
 
         <!-- 背景雪花飘落特效 洪卫 shw2018 add 2019.09.10 -->
-        
-            <script type="text/javascript">
-                var windowWidth = $(window).width();
-                if (windowWidth > 768) {
-                    document.write('<script type="text/javascript" src="/js/xuehuapiaoluo.js"><\/script>');
-                }
-            </script>
         
 
         <!-- 在线聊天工具  洪卫 shw2018 add 2019.09.11 -->

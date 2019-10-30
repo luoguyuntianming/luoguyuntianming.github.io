@@ -665,20 +665,20 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/categories/CF/" title="CF: 1">
+                <a href="/categories/洛谷/" title="洛谷: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">CF
-                        <span class="tag-length">1</span>
+                            style="background-color: #D5F5E3;">洛谷
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/洛谷/" title="洛谷: 3">
+                <a href="/categories/CF/" title="CF: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">洛谷
-                        <span class="tag-length">3</span>
+                            style="background-color: #E8F8F5;">CF
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -931,6 +931,14 @@ $(function () {
 
         <!-- 背景雪花飘落特效洪卫 shw2018 add 2019.09.10 -->
         
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
 
         <!-- 鼠标点击文字特效 洪卫 shw2018 add 2019.09.10-->
         
@@ -938,13 +946,6 @@ $(function () {
         
 
         <!-- 背景雪花飘落特效 洪卫 shw2018 add 2019.09.10 -->
-        
-            <script type="text/javascript">
-                var windowWidth = $(window).width();
-                if (windowWidth > 768) {
-                    document.write('<script type="text/javascript" src="/js/xuehuapiaoluo.js"><\/script>');
-                }
-            </script>
         
 
         <!-- 在线聊天工具  洪卫 shw2018 add 2019.09.11 -->
