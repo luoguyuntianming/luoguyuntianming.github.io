@@ -138,15 +138,6 @@
     </li>
     
     <li class="hide-on-med-and-down">
-        <a href="/galleries" class="waves-effect waves-light">
-            
-            <i class="fa fa-photo"></i>
-            
-            <span>相册</span>
-        </a>
-    </li>
-    
-    <li class="hide-on-med-and-down">
         <a href="/about" class="waves-effect waves-light">
             
             <i class="fa fa-user-circle-o"></i>
@@ -244,19 +235,6 @@
                 <i class="fa fa-music"></i>
               
               <span>视听</span>
-            </a>
-
-            
-      </li>
-    
-      <li class="hide-on-med-and-down nav-item" >
-
-        
-            <a href="/galleries" class="waves-effect waves-light">
-              
-                <i class="fa fa-photo"></i>
-              
-              <span>相册</span>
             </a>
 
             
@@ -374,15 +352,6 @@
         </li>
         
         <li>
-            <a href="/galleries" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-photo"></i>
-                
-                相册
-            </a>
-        </li>
-        
-        <li>
             <a href="/about" class="waves-effect waves-light">
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
@@ -475,17 +444,6 @@
                         <i class="fa fa-fw fa-music"></i>
                         
                         视听
-                    </a>
-              
-            </li>
-        
-        <li class="m-nav-item">
-                
-                    <a href="/galleries" class="waves-effect waves-light">
-                        
-                        <i class="fa fa-fw fa-photo"></i>
-                        
-                        相册
                     </a>
               
             </li>
@@ -828,7 +786,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         },
         xAxis: {
             type: 'category',
-            data: ["2018-10","2018-11","2018-12","2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10"]
+            data: ["2018-11","2018-12","2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11"]
         },
         yAxis: {
             type: 'value',
@@ -838,7 +796,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,3,1,2],
+                data: [0,0,0,0,0,0,0,0,0,3,1,2,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -880,7 +838,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Moj","value":1},{"name":"博客","value":1},{"name":"CF","value":1},{"name":"洛谷","value":3}],
+                data: [{"name":"博客","value":1},{"name":"CF","value":1},{"name":"Moj","value":1},{"name":"洛谷","value":3}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -904,7 +862,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["题解","2019","洛谷","Moj","美工组","博客","CF"]
+                data: ["题解","2019","洛谷","博客","CF","Moj","美工组"]
             }
         ],
         yAxis: [
