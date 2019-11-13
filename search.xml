@@ -30,6 +30,35 @@
     
     <entry>
       <title>洛谷P5601 小D与笔试</title>
+      <link href="/2019/10/28/solution-luoguP1010/"/>
+      <url>/2019/10/28/solution-luoguP1010/</url>
+      
+        <content type="html"><![CDATA[<p>本题使用位运算求解。   </p><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span><span class="token keyword">void</span> <span class="token function">p</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//难点</span><span class="token punctuation">{</span>    <span class="token keyword">int</span> i<span class="token punctuation">;</span>    <span class="token keyword">int</span> flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token keyword">switch</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//也可以写几个if和else代替</span>    <span class="token punctuation">{</span>        <span class="token keyword">case</span> <span class="token number">0</span> <span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"2(0)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">break</span><span class="token punctuation">;</span>        <span class="token keyword">case</span> <span class="token number">1</span> <span class="token operator">:</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token keyword">break</span><span class="token punctuation">;</span>        <span class="token keyword">default</span> <span class="token operator">:</span>            <span class="token keyword">for</span> <span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">14</span><span class="token punctuation">;</span> i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token operator">&amp;</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">~</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">~</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//位运算精华</span>                <span class="token punctuation">{</span>                    <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"+"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//很关键，括号内部已经有一个表达式才能加上+号</span>                    <span class="token keyword">else</span>        flag<span class="token operator">++</span><span class="token punctuation">;</span>                    <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">!=</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> i<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span>                    <span class="token punctuation">{</span>                        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"2("</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                        <span class="token function">p</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>                        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">")"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                    <span class="token punctuation">}</span>                    <span class="token keyword">else</span>                        <span class="token function">p</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span>        <span class="token keyword">break</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token keyword">return</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">int</span> n<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//特别简单</span>    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token function">p</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>如果不用位运算，大规模数据（本题不存在）会超时<br>如果还想更快，可参照洛谷日报第26期：<a href="https://www.luogu.org/blog/your-alpha1022/gcc-hei-ke-ji-zhi-builtin-ji-lie-han-shuo" target="_blank" rel="noopener">GCC自带位运算系列函数</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 洛谷 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 洛谷 </tag>
+            
+            <tag> 题解 </tag>
+            
+            <tag> 2019 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>洛谷P5601 小D与笔试</title>
       <link href="/2019/10/28/solution-luoguP5601/"/>
       <url>/2019/10/28/solution-luoguP5601/</url>
       
@@ -45,11 +74,11 @@
       
         <tags>
             
+            <tag> 洛谷 </tag>
+            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
-            
-            <tag> 洛谷 </tag>
             
         </tags>
       
@@ -74,11 +103,11 @@
       
         <tags>
             
-            <tag> CF </tag>
-            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
+            
+            <tag> CF </tag>
             
         </tags>
       
@@ -103,11 +132,11 @@
       
         <tags>
             
+            <tag> 洛谷 </tag>
+            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
-            
-            <tag> 洛谷 </tag>
             
         </tags>
       
@@ -132,11 +161,11 @@
       
         <tags>
             
+            <tag> 洛谷 </tag>
+            
             <tag> 题解 </tag>
             
             <tag> 2019 </tag>
-            
-            <tag> 洛谷 </tag>
             
         </tags>
       
